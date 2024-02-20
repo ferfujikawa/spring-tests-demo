@@ -1,13 +1,20 @@
 package com.fujikawa.springtestsdemo.dtos;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 public class CadastrarMedicoDTO {
 
+    @NotBlank
     private String nome;
     
+    @Email
     private String email;
     
+    @NotBlank
     private String especialidade;
     
+    @NotBlank
     private String crm;
 
     protected CadastrarMedicoDTO() {}

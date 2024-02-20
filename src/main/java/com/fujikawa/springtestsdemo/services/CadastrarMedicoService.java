@@ -1,5 +1,7 @@
 package com.fujikawa.springtestsdemo.services;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Service;
 
 import com.fujikawa.springtestsdemo.dtos.CadastrarMedicoDTO;
@@ -16,7 +18,7 @@ public class CadastrarMedicoService {
         this.medicoRepository = medicoRepository;
     }
 
-    public MedicoDTO executar(CadastrarMedicoDTO dadosMedico) {
+    public MedicoDTO executar(@Valid CadastrarMedicoDTO dadosMedico) {
 
         Medico novoMedico = new Medico(
             dadosMedico.getNome(),
