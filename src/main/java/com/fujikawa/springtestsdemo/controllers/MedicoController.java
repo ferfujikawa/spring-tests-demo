@@ -4,6 +4,7 @@ import java.net.URI;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -24,7 +25,7 @@ public class MedicoController {
 
     @PostMapping
     public ResponseEntity<MedicoDTO> cadastrarMedico(
-        CadastrarMedicoDTO dadosMedico,
+        @RequestBody CadastrarMedicoDTO dadosMedico,
         UriComponentsBuilder uriComponentsBuilder) {
 
         MedicoDTO medicoCadastrado = cadastrarMedicoService.executar(dadosMedico);
