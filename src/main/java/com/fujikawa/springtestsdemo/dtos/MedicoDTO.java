@@ -2,6 +2,8 @@ package com.fujikawa.springtestsdemo.dtos;
 
 import java.util.UUID;
 
+import com.fujikawa.springtestsdemo.entities.Medico;
+
 public class MedicoDTO {
 
     private UUID id;
@@ -25,6 +27,16 @@ public class MedicoDTO {
         this.ativo = ativo;
         this.crm = crm;
         this.especialidade = especialidade;
+    }
+
+    public MedicoDTO(Medico medico) {
+        this(
+            medico.getId(),
+            medico.getNome(),
+            medico.getEmail(),
+            medico.getAtivo(),
+            medico.getCrm(),
+            medico.getEspecialidade());
     }
 
     public UUID getId() {
