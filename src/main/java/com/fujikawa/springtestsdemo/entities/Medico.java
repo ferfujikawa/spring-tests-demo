@@ -18,6 +18,9 @@ public class Medico {
     @Column(name="nome")
 	private String nome;
 
+	@Column(name="email")
+	private String email;
+
     @Column(name="ativo")
 	private Boolean ativo;
 
@@ -29,10 +32,11 @@ public class Medico {
 	
 	protected Medico() {}
 
-	public Medico(String nome, String especialidade, String crm) {
+	public Medico(String nome, String email, String especialidade, String crm) {
 		
 		this.id = UUID.randomUUID();
 		this.nome = nome;
+		this.email = email;
 		this.ativo = true;
 		this.crm = crm;
 		this.especialidade = especialidade;
@@ -44,6 +48,10 @@ public class Medico {
 
 	public String getNome() {
 		return nome;
+	}
+
+	public String getEmail() {
+		return email;
 	}
 
 	public Boolean getAtivo() {
