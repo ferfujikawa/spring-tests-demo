@@ -44,7 +44,7 @@ public class MedicoControllerTest {
     private CadastrarMedicoService cadastrarMedicoService;
 
     @Test
-    @DisplayName("Deveria devolver código http 204 quando informações válidas")
+    @DisplayName("Deveria devolver código http 201 quando informações válidas")
     void testCadastrarMedicoCenario1() throws IOException, Exception {
 
         UUID novoMedicoId = UUID.randomUUID();
@@ -85,5 +85,17 @@ public class MedicoControllerTest {
 
         Assertions.assertThat(response.getStatus()).isEqualTo(HttpStatus.CREATED.value());
         Assertions.assertThat(response.getContentAsString()).isEqualTo(jsonEsperado);
+    }
+
+    @Test
+    @DisplayName("Deveria devolver código http 400 quando informações inválidas")
+    void testCadastrarMedicoCenario2() throws Exception {
+
+        MockHttpServletResponse response = mvc
+            .perform(post("/medicos"))
+            .andReturn()
+            .getResponse();
+
+        Assertions.assertThat(response.getStatus()).isEqualTo(HttpStatus.BAD_REQUEST.value());
     }
 }
